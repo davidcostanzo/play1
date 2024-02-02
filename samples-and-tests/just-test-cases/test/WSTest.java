@@ -17,6 +17,9 @@ import java.lang.reflect.Field;
 
 
 public class WSTest extends UnitTest {
+    
+    // Each of the tests uses a different URL to prevent the second read from one test from
+    // interfering with with the responses from another test.
 
     @Test
     public void multipleGetStreamOk() {
@@ -30,7 +33,7 @@ public class WSTest extends UnitTest {
 
     @Test
     public void multipleGetStreamKo() {
-        String url = "http://google.com";
+        String url = "https://google.com";
         HttpResponse response = WS.url(url).post();
         String resp1 = IO.readContentAsString(response.getStream(), response.getEncoding());
         // Stream is consumed, no more content
@@ -41,7 +44,7 @@ public class WSTest extends UnitTest {
 
     @Test
     public void multiplePostContentTest2() {
-        String url = "http://google.com";
+        String url = "http://www.google.com";
         HttpResponse response = WS.url(url).post();
 
         InputStream is = response.getStream();

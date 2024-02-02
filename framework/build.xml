@@ -256,7 +256,7 @@
         <condition property="pythonExecutable" value="python">
             <and><os family="windows"/></and>
         </condition>
-        <condition property="pythonExecutable" value="python">
+        <condition property="pythonExecutable" value="python3">
             <and><os family="unix"/></and>
         </condition>
 

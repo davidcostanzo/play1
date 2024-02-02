@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 from __future__ import print_function
 
@@ -145,7 +145,7 @@ class IamADeveloper(unittest.TestCase):
             self.assertTrue(waitFor(self.play, 'Listening for HTTPS on port ' + DEFAULTS['http.port']))
 
             step("Send request to https")
-            response = browserOpen('https://' + DEFAULTS['host'] + ':' + DEFAULTS['http.port'])
+            urllib.request.urlopen('https://' + DEFAULTS['host'] + ':' + DEFAULTS['http.port'])
 
             step("check that ssl message is logged")
             self.assertTrue(waitFor(self.play, 'I am ssl secured!'))
@@ -168,7 +168,7 @@ class IamADeveloper(unittest.TestCase):
 
             step("Send request to https")
 
-            response = browserOpen('https://' + DEFAULTS['host'] + ':' + DEFAULTS['http.port'])
+            urllib.request.urlopen('https://' + DEFAULTS['host'] + ':' + DEFAULTS['http.port'])
 
             step("check that ssl message is logged")
             self.assertTrue(waitFor(self.play, 'I am ssl secured!'))
